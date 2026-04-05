@@ -1,2 +1,3 @@
 # No .gitignore principal (na raiz)
 .github/
+.gitignore
