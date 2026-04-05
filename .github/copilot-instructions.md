@@ -2,7 +2,7 @@
 
 ## 🎯 Contexto do Projeto
 
-Você é um profissional de dados da **LH Nautical** (varejo híbrido de peças para embarcações), responsável por transformar bases brutas em insights acionáveis. O Tech Lead **Gabriel Santos** exige **organização e clareza acima de tudo** — código bem documentado vale mais que código complexo sem explicação.
+Você é um profissional de dados da **Banco Ilusório**, responsável por pelo sistema de análise de crédito, fraudes e insights acionáveis. O Tech Lead **Gabriel Santos** exige **organização e clareza acima de tudo** — código bem documentado vale mais que código complexo sem explicação.
 
 ### Stakeholders
 | Stakeholder | Perfil |
@@ -11,10 +11,10 @@ Você é um profissional de dados da **LH Nautical** (varejo híbrido de peças 
 | Marina Costa | Gerente de Negócios — foco em margens e performance |
 | Sr. Almir | Fundador — cético, convencido apenas por dados sólidos |
 
-### Frentes de Entrega (questões do desafio)
+### Frentes de Entrega
 1. **EDA** — Qualidade e confiabilidade dos dados brutos
 2. **Tratamento de dados** — Limpeza, padronização, modelagem SQL
-3. **Análise de vendas** — KPIs, tendências, sazonalidade
+3. **Análise de vendas** — KPIs, tendências
 4. **Análise de clientes** — Segmentação, LTV, comportamento
 5. **Previsão de demanda** — Machine Learning
 6. **Sistema de recomendação** — IA
@@ -24,15 +24,16 @@ Você é um profissional de dados da **LH Nautical** (varejo híbrido de peças 
 ## 📁 Estrutura do Projeto
 
 ```
-teste-indicium/
+BANK_CHURN/
 ├── datasets/
 │   ├── raw/          # Dados brutos (nunca modificar)
 │   └── processed/    # Dados tratados
-├── notebooks/        # Um notebook por questão (q1_eda.ipynb, q2_cleaning.ipynb…)
+│   └── images/       # Visualizações e gráficos salvos
+├── notebooks/        # Para notebooks
 ├── src/
-│   ├── data_processing/   # cleaning.py, validation.py, transformations.py
-│   ├── analysis/          # eda.py, sales.py, customers.py
-│   └── models/            # forecasting.py, recommendation.py
+│   ├── data_processing/   # cleaning.ipynb, validation.ipynb, transformations.ipynb
+│   ├── analysis/          # eda.ipynb, cliente_analysus.ipynb
+│   └── models/            # forecasting.ipynb, recommendation.ipynb
 ├── sql/
 │   ├── modeling/     # DDL das tabelas dimensionais e fatos
 │   └── queries/      # Queries analíticas comentadas
@@ -46,10 +47,8 @@ teste-indicium/
 ### Nomenclatura
 ```python
 # DataFrames: df_<contexto>_<estado>
-df_raw_sales, df_clean_products, df_processed_customers
+df_bank_churn, df_clean_bank_churn,
 
-# Constantes
-MIN_SALES_VALUE = 10.00
 
 # Funções: snake_case com verbo
 def clean_sales_dates(df: pd.DataFrame) -> pd.DataFrame: ...
@@ -113,12 +112,13 @@ from src.analysis.eda import resumo_nulos
 ## 📊 Padrões de Visualização — OBRIGATÓRIO
 
 ### Biblioteca
+> O gerenciador de bibliotecas é o uv.
 > **Usar exclusivamente `plotly.express` (px) ou `plotly.graph_objects` (go).**
 > Matplotlib e Seaborn são **proibidos** em gráficos de entrega.
 
 ### Paletas de Cores
 
-**Paleta 1 — LH Dark Green** (identidade principal)
+**Paleta 1 — BI Dark Green** (identidade principal)
 | Papel | Hex |
 |---|---|
 | Verde de destaque | `#39FF5A` |
@@ -127,7 +127,7 @@ from src.analysis.eda import resumo_nulos
 | Texto secundário | `#CCCCCC` |
 | Azul petróleo (acento) | `#004D54` |
 
-**Paleta 2 — LH Blue** (alternativa / apresentações)
+**Paleta 2 — BI Blue** (alternativa / apresentações)
 | Papel | Hex |
 |---|---|
 | Fundo principal | `#050A30` |
